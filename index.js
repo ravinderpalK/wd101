@@ -18,7 +18,7 @@ let userEnteries = recieveEntries();
 const displayEnteries = () => {
     const enteries = recieveEntries();
 
-    const tableEnteries = enteries.map((entry) => {
+    let tableEnteries = enteries.map((entry) => {
         const ncell = `<td class="px-4">${entry.name}</td>`;
         const ecell = `<td class="px-4">${entry.email}</td>`;
         const pcell = `<td class="px-4">${entry.password}</td>`;
@@ -27,8 +27,7 @@ const displayEnteries = () => {
 
         const row = `<tr>${ncell} ${ecell} ${pcell} ${dobcell} ${taccell}</tr>`;
         return row;
-    }).join("/n");  
-
+    }).join("");  
     const table = `<table class="table-fixed"><tr>
         <th class="px-4">Name</th>
         <th class="px-4">Email</th>
@@ -38,6 +37,7 @@ const displayEnteries = () => {
     </tr>${tableEnteries} </table>`;
 
     let details = document.getElementById("user-enteries");
+    console.table(tableEnteries);
     details.innerHTML = table;
 }
 
